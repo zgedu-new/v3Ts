@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <div class="role-list">
-      <div
+      <el-button
         v-for="item of list"
         @click="handleClick(item.id)"
         :key="item.id"
         :class="{ active: active === item.id }"
       >
         {{ item.name }}
-      </div>
+      </el-button>
     </div>
     <div class="to-login" @click="handleChangeFullname">
       handleOnChangeComputed
@@ -19,7 +19,6 @@
     <home msg="Welcome to Your Vue.js + TypeScript App" />
   </div>
 </template>
-
 <script lang="ts" setup>
 // watchEffect用于自动收集响应式数据的依赖。
 // watch需要手动指定侦听的数据源。
@@ -91,8 +90,14 @@ const handleClick = (id: number) => {
   .active {
     background: yellow;
   }
+  margin-bottom: 20px;
 }
 .to-login {
+  cursor: pointer;
+  width: 80%;
+  height: 60px;
+  line-height: 60px;
+  margin: 0 auto;
   background: yellow;
 }
 </style>
