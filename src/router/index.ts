@@ -1,11 +1,25 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Index from '../views/Index.vue'
+import Main from '../views/Main.vue'
+import Right from '../views/Right.vue'
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '/',
     name: 'Index',
     component: Index
+  },
+  {
+    path: '/main',
+    name: 'main',
+    component: Main,
+    children: [
+      {
+        path: '/main/index',
+        name: 'home',
+        component: Right
+      }
+    ]
   },
   {
     path: '/about',
